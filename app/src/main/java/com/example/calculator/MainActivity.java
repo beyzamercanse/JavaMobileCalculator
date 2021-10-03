@@ -26,26 +26,54 @@ public class MainActivity extends AppCompatActivity {
             binding.result.setText("+");
         });
 
-        binding.operator.setOnClickListener(v-> {
-            binding.result.setText("-"); });
-
+        binding.buttonEnter.setOnClickListener(v -> minus());
         binding.operator.setOnClickListener(v-> {
             binding.result.setText("-");
         });
+
+        binding.buttonEnter.setOnClickListener(v -> multiply());
         binding.operator.setOnClickListener(v-> {
             binding.result.setText("*");
         });
+
+        binding.operator.setOnClickListener(v-> divide());
         binding.operator.setOnClickListener(v-> {
             binding.result.setText("/");
         });
 
     }
 
+
     private void add() {
         int left = Integer.parseInt(binding.inputnum1.getText().toString());
         int right = Integer.parseInt(binding.inputnum2.getText().toString());
-        int result = left +right;
+        int result = left + right;
 
         binding.result.setText(Integer.toString(result));
     }
+
+    private void minus() {
+        int left = Integer.parseInt(binding.inputnum1.getText().toString());
+        int right = Integer.parseInt(binding.inputnum2.getText().toString());
+        int result = left - right;
+
+        binding.result.setText(Integer.toString(result));
+    }
+
+    private void multiply() {
+        int left = Integer.parseInt(binding.inputnum1.getText().toString());
+        int right = Integer.parseInt(binding.inputnum2.getText().toString());
+        int result = left * right;
+
+        binding.result.setText(Integer.toString(result));
+    }
+
+    private void divide() {
+        int left = Integer.parseInt(binding.inputnum1.getText().toString());
+        int right = Integer.parseInt(binding.inputnum2.getText().toString());
+        int result = left / right;
+
+        binding.result.setText(Integer.toString(result));
+    }
+
 }
