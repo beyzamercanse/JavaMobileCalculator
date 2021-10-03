@@ -20,17 +20,22 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         binding.buttonEnter.setOnClickListener(v -> add());
-        binding.plus.setOnClickListener(v -> {
-            binding.result.setText("-");
-        });
-        binding.minus.setOnClickListener(v-> {
+        binding.operator.setOnClickListener(v -> {
             binding.result.setText("+");
         });
-        binding.multiply.setOnClickListener(v-> {
+
+        binding.operator.setOnClickListener(v-> {
+            binding.result.setText("-"); });
+
+        binding.operator.setOnClickListener(v-> {
+            binding.result.setText("-");
+        });
+        binding.operator.setOnClickListener(v-> {
             binding.result.setText("*");
         });
-        binding.divide.setOnClickListener(v-> {
+        binding.operator.setOnClickListener(v-> {
             binding.result.setText("/");
         });
 
