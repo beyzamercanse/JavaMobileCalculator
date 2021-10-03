@@ -1,5 +1,6 @@
 package com.example.calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,59 +22,55 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.buttonEnter.setOnClickListener(v -> add());
-        binding.operator.setOnClickListener(v -> {
-            binding.result.setText("+");
+        binding.buttonEnter.setOnClickListener(v -> calculator());
+        binding.buttonAdd.setOnClickListener(v -> {
+            binding.operator.setText("+");
         });
-
-        binding.buttonEnter.setOnClickListener(v -> minus());
-        binding.operator.setOnClickListener(v-> {
-            binding.result.setText("-");
+        binding.buttonEnter.setOnClickListener(v -> calculator());
+        binding.buttonMinus.setOnClickListener(v-> {
+            binding.operator.setText("-");
         });
-
-        binding.buttonEnter.setOnClickListener(v -> multiply());
-        binding.operator.setOnClickListener(v-> {
-            binding.result.setText("*");
+        binding.buttonEnter.setOnClickListener(v -> calculator());
+        binding.buttonMultiply.setOnClickListener(v-> {
+            binding.operator.setText("*");
         });
-
-        binding.operator.setOnClickListener(v-> divide());
-        binding.operator.setOnClickListener(v-> {
-            binding.result.setText("/");
+        binding.buttonEnter.setOnClickListener(v -> calculator());
+        binding.buttonDivide.setOnClickListener(v-> {
+            binding.operator.setText("/");
         });
 
     }
 
 
-    private void add() {
-        int left = Integer.parseInt(binding.inputnum1.getText().toString());
-        int right = Integer.parseInt(binding.inputnum2.getText().toString());
-        int result = left + right;
+    private void calculator() {
+        String op = binding.operator.getText().toString();
+        int result = 0;
+
+        if (op.compareTo("+") == 0){
+            int left = Integer.parseInt(binding.inputnum1.getText().toString());
+            int right = Integer.parseInt(binding.inputnum2.getText().toString());
+            result = left + right;
+
+        }else if(op.compareTo("-") ==0){
+            int left = Integer.parseInt(binding.inputnum1.getText().toString());
+            int right = Integer.parseInt(binding.inputnum2.getText().toString());
+            result = left - right;
+
+        }else if(op.compareTo("*") ==0){
+            int left = Integer.parseInt(binding.inputnum1.getText().toString());
+            int right = Integer.parseInt(binding.inputnum2.getText().toString());
+            result = left * right;
+
+        }else{
+            int left = Integer.parseInt(binding.inputnum1.getText().toString());
+            int right = Integer.parseInt(binding.inputnum2.getText().toString());
+            result = left / right;
+
+        }
 
         binding.result.setText(Integer.toString(result));
-    }
+        Log.i("debug", "selected operator" + binding.operator.getText());
 
-    private void minus() {
-        int left = Integer.parseInt(binding.inputnum1.getText().toString());
-        int right = Integer.parseInt(binding.inputnum2.getText().toString());
-        int result = left - right;
-
-        binding.result.setText(Integer.toString(result));
-    }
-
-    private void multiply() {
-        int left = Integer.parseInt(binding.inputnum1.getText().toString());
-        int right = Integer.parseInt(binding.inputnum2.getText().toString());
-        int result = left * right;
-
-        binding.result.setText(Integer.toString(result));
-    }
-
-    private void divide() {
-        int left = Integer.parseInt(binding.inputnum1.getText().toString());
-        int right = Integer.parseInt(binding.inputnum2.getText().toString());
-        int result = left / right;
-
-        binding.result.setText(Integer.toString(result));
     }
 
 }
