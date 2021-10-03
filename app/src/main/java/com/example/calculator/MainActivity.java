@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonMultiply.setOnClickListener(v-> {
             binding.operator.setText("*");
         });
-        binding.buttonEnter.setOnClickListener(v -> calculator());
+        binding.buttonEnter.setOnClickListener(v -> calculator()p);
         binding.buttonDivide.setOnClickListener(v-> {
             binding.operator.setText("/");
         });
